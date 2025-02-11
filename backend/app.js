@@ -1,11 +1,7 @@
-import React from 'react'
+const express = require("express");
+const app = express();
 
-const app = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
 
-export default app
+app.listen(1000, () => {
+    console.log("Server Started");
+});
