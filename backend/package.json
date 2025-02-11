@@ -11,7 +11,10 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongose": "^0.0.2-security"
+    "mongoose": "^8.10.0",
+    "mongose": "^0.0.2-security",
+    "nodemon": "^3.1.9"
   }
 }
