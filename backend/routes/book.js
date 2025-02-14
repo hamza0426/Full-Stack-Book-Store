@@ -27,9 +27,16 @@ router.post("/add-book", authenticateToken, async (req, res) => {
     }
 });
 
-//Update book
+//Update book --admin
 router.put("/update-book", authenticateToken, async (req, res) => {
     try {
+        const { id } = req.headers;
+        const user = await User.findById(id);
+        if (user.role !== "admin") {
+          return res
+            .status(400)
+            .json({ message: "You are not authorized to add a book" });
+        }
         const { bookid } = req.headers;
         await Book.findByIdAndUpdate(bookid, {
             url: req.body.url,
@@ -47,9 +54,16 @@ router.put("/update-book", authenticateToken, async (req, res) => {
     }
 });
 
-//Delete book
+//Delete book --admin
 router.delete("/delete-book", authenticateToken, async (req, res) => {
     try {
+        const { id } = req.headers;
+        const user = await User.findById(id);
+        if (user.role !== "admin") {
+          return res
+            .status(400)
+            .json({ message: "You are not authorized to add a book" });
+        }
         const { bookid } = req.headers;
         await Book.findByIdAndDelete(bookid);
         return res.status(200).json({ message: "Book deleted successfully!!" });
