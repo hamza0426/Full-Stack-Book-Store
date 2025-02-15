@@ -1,9 +1,14 @@
-// import React from 'react'
+
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-red-600'>Tailwind CSS</h1>
+      <Navbar />
+      <Home />  
+      <Footer />
     </div>
   );
 }
