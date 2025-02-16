@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   const links = [
     {
@@ -8,10 +10,10 @@ const Navbar = () => {
       title: "All Books",
       link: "/all-books",
     },
-    {
-      title: "About US",
-      link: "/about-us",
-    },
+    // {
+    //   title: "About US",
+    //   link: "/about-us",
+    // },
     {
       title: "Cart",
       link: "/cart",
@@ -34,19 +36,20 @@ const Navbar = () => {
       <div className="nav-links-fahambooks flex items-center gap-4 transition-all duration-300 cursor-pointer">
         <div className="flex gap-4">
           {links.map((items, i) => (
-            <div className=" hover:text-blue-500" key={i}>
+            <Link to={items.link} 
+            className="hover:text-blue-500 transition-all duration-300" key={i}>
               {" "}
               {items.title}{" "}
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex gap-4">
-          <button className="px-2 py-1 border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">
+          <Link to={"/login"} className="px-2 py-1 border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">
             Login
-          </button>
-          <button className="px-2 py-1 bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">
+          </Link>
+          <Link to={"/sign-up"} className="px-2 py-1 bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">
             Sign Up
-          </button>
+          </Link>
         </div>
       </div>
     </div>
