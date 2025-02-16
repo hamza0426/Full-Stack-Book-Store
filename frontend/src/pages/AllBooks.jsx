@@ -2,7 +2,7 @@
 const AllBooks = () => {
   return (
     <div>
-      
+      All Books page
     </div>
   )
 }
