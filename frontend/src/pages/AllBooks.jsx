@@ -22,7 +22,7 @@ const AllBooks = () => {
           <Loader />{" "}
         </div>
       )}
-      <div className=" my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10">
+      <div className=" my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
         {Data &&
           Data.map((items, i) => (
             <div key={i}>
