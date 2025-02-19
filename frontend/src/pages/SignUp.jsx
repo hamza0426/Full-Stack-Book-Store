@@ -1,6 +1,8 @@
 // // import { useState } from "react";
 // // import Loader from "../Loader/Loader";
 
+import { useState } from "react";
+
 // const SignUp = () => {
 //   // const [loading, setLoading] = useState(false);
   
@@ -58,6 +60,23 @@
 // export default SignUp;
 
 const SignUp = () => {
+  const [Values, setValues] = useState({username:"", email:"", password:"", address:""});
+  const change = (e) => {
+    const {name, value} = e.target;
+    setValues({...Values, [name]: value});
+  };
+  const submit = async () => {
+    try {
+      if(Values.username === "" || Values.email === "" || Values.password === "" || Values.address === "") {
+        alert("All fields are required")
+      }
+      else {
+        console.log(Values);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="min-h-screen py-12" style={{ backgroundColor: '#FEFAE0' }}>
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden p-8">
@@ -73,6 +92,9 @@ const SignUp = () => {
             <input
               type="text"
               name="username"
+              required
+              value={Values.username}
+              onChange={change}
               className="mt-1 block w-full rounded-md border-2 shadow-sm p-2 focus:outline-none focus:ring-2"
               style={{ 
                 borderColor: '#606C38',
@@ -92,6 +114,9 @@ const SignUp = () => {
             <input
               type="email"
               name="email"
+              required
+              value={Values.email}
+              onChange={change}
               className="mt-1 block w-full rounded-md border-2 shadow-sm p-2 focus:outline-none focus:ring-2"
               style={{ 
                 borderColor: '#606C38',
@@ -108,6 +133,9 @@ const SignUp = () => {
             <input
               type="password"
               name="password"
+              required
+              value={Values.password}
+              onChange={change}
               className="mt-1 block w-full rounded-md border-2 shadow-sm p-2 focus:outline-none focus:ring-2"
               style={{ 
                 borderColor: '#606C38',
@@ -127,6 +155,9 @@ const SignUp = () => {
             <textarea
               type="text"
               name="address"
+              required
+              value={Values.address}
+              onChange={change}
               className="mt-1 block w-full rounded-md border-2 shadow-sm p-2 focus:outline-none focus:ring-2"
               style={{ 
                 borderColor: '#606C38',
@@ -140,6 +171,7 @@ const SignUp = () => {
             type="submit"
             className="w-full py-2 px-4 rounded-md font-medium text-white hover:opacity-90 transition-opacity duration-200"
             style={{ backgroundColor: '#DDA15E' }}
+            onClick={submit}
           >
             Create Account
           </button>
