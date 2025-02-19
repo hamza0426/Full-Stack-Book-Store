@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MdOutlineSegment } from "react-icons/md";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const links = [
@@ -25,6 +26,10 @@ const Navbar = () => {
       link: "/profile",
     },
   ];
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  if (isLoggedIn === false) {
+    links.splice(2, 2);
+  }
   const [Mblnav, setMblnav] = useState("hidden");
 
   const toggleMblnav = () => {

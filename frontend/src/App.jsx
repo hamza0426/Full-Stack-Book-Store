@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
@@ -12,7 +12,7 @@ import ViewBookDetails from './components/ViewBookDetails/ViewBookDetails';
 const App = () => {
   return (
     <div>
-      <Router>
+      {/* <Router> */}
       <Navbar />
       <Routes>
         <Route exact path='/' element= { <Home /> } />
@@ -24,7 +24,7 @@ const App = () => {
         <Route path='/view-book-details/:id' element= { <ViewBookDetails /> } />
       </Routes>
       <Footer />
-      </Router>
+      {/* </Router> */}
 
       
     </div>
