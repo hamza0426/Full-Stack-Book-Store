@@ -49,17 +49,26 @@ const Navbar = () => {
         <div className="nav-links-fahambooks block md:flex items-center gap-4 transition-all duration-300 cursor-pointer">
           <div className="hidden md:flex gap-4">
             {links.map((items, i) => (
-              <Link
+              <div className="flex items-center" key={i}>
+              {items.title === "Profile" ? <Link
+                to={items.link}
+                className="px-4 py-1 border-[var(--color-button)] border rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
+                // key={i}
+              >
+                {items.title}
+              </Link> :<Link
                 to={items.link}
                 className="hover:text-blue-500 transition-all duration-300"
-                key={i}
+                // key={i}
               >
                 {items.title}{" "}
-              </Link>
+              </Link> }
+              </div>
             ))}
           </div>
-          <div className="hidden md:flex gap-4">
-            <Link
+          
+            {isLoggedIn === false && <><div className="hidden md:flex gap-4">
+              <Link
               to={"/login"}
               className="px-4 py-1 border-[var(--color-button)] border rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
             >
@@ -71,7 +80,17 @@ const Navbar = () => {
             >
               Sign Up
             </Link>
-          </div>
+            </div>
+            </>}
+            {isLoggedIn === true && <><div className="hidden md:flex gap-4">
+            <button
+              // onClick={}
+              className="px-4 py-1 bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
+            >
+              Logout
+            </button>
+            </div>
+            </>}
           <button
             className="block md:hidden text-white text-2xl hover:text-zinc-500"
             onClick={toggleMblnav}
@@ -94,7 +113,7 @@ const Navbar = () => {
           </Link>
         ))}
 
-        <Link
+        {isLoggedIn === false && <><Link
           to={"/login"}
           className={`${Mblnav} px-8 mb-8 text-3xl font-semibold border-[var(--color-button)] border rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300`}
           onClick={toggleMblnav}
@@ -107,7 +126,16 @@ const Navbar = () => {
           onClick={toggleMblnav}
         >
           Sign Up
-        </Link>
+        </Link></>}
+        {isLoggedIn === true && <><div className="block md:hidden gap-8">
+            <button
+              // onClick={}
+              className={`${Mblnav} px-8 py-4 text-3xl font-semibold bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300`}
+              >
+              Logout
+            </button>
+            </div>
+            </>}
       </div>
     </>
   );

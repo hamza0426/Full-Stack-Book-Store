@@ -70,11 +70,14 @@
 import { useState } from "react";
 // import Loader from "../components/Loader/Loader";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import {authActions} from '../store/auth';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [Values, setValues] = useState({username:"", password:""});
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const change = (e) => {
     const {name, value} = e.target;
     setValues({...Values, [name]: value});
@@ -122,11 +125,16 @@ const Login = () => {
           Values,
           // { headers: { "Content-Type": "application/json" } } // Ensure correct headers
         );
-        console.log(response.data);
-        // navigate("/dashboard"); // Redirect if needed
+        dispatch(authActions.login());
+        dispatch(authActions.changeRole(response.data.role));
+        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role);
+        navigate("/profile"); // Redirect if needed
       }
     } catch (error) {
-      console.error("Login error:", error); // Debugging: Log the error in console
+      // e.preventDefault();
+      alert("Login error:", error.response.data.message); // Debugging: Log the error in console
   
       // if (error.response) {
       //   alert(error.response.data.message || "Invalid credentials"); // Show correct error
@@ -181,7 +189,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-center text-gray-600 mt-4">
-          Don't have an account? <a href="/sign-up" className="text-[#DDA15E] hover:text-[#BC6C25]">Sign Up</a>
+          Dont have an account? <a href="/sign-up" className="text-[#DDA15E] hover:text-[#BC6C25]">Sign Up</a>
         </p>
       </div>
     </div>

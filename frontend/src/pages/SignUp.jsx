@@ -78,7 +78,7 @@ const SignUp = () => {
         navigate("/Login");
       }
     } catch (error) {
-      console.log(error);
+      alert("Login error:", error.response.data.message); 
     }
   }
   return (
