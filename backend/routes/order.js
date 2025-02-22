@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { authenticateToken } = require("./userAuth");
-const Book = require('../models/book');
+// const Book = require('../models/book');
 const Order = require("../models/order");
 const User = require("../models/user");
 
@@ -9,6 +9,7 @@ router.post("/place-order", authenticateToken, async (req, res) => {
   try {
     const { id } = req.headers;
     const { order } = req.body;
+    // console.log("Received Order Data:", order);
 
     for (const orderData of order) {
       const newOrder = new Order({ user: id, book: orderData._id });
@@ -29,7 +30,7 @@ router.post("/place-order", authenticateToken, async (req, res) => {
       message: "Order placed successfully",
     });
   } catch (error) {
-    //    console.error(error);
+      //  console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });

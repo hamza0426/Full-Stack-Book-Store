@@ -18,9 +18,7 @@ const AllBooks = () => {
     <div className=" bg-bg1 h-auto px-12 py-8 ">
       <h4 className="text-3xl text-primary">All Books</h4>
       {!Data && (
-        <div className="flex items-center justify-center my-8">
-          <Loader />{" "}
-        </div>
+        <div className="w-full h-screen flex items-center justify-center"><Loader />{" "}</div>
       )}
       <div className=" my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
         {Data &&
