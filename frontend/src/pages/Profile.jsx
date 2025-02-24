@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 // import { useSelector } from "react-redux"
 import axios from "axios"
 import Loader from "../components/Loader/Loader"
+import MobileNav from "../components/Profile/MobileNav"
 
 
 const Profile = () => {
@@ -31,6 +32,7 @@ const Profile = () => {
       {Profile && <>
       <div className="w-full md:w-1/6 h-auto lg:h-screen">
       <Sidebar data= { Profile } />
+      <MobileNav />
       </div>
         <div className="w-full md:w-5/6"><Outlet /></div>
         </>
