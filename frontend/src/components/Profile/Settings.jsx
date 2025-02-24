@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 const Settings = () => {
 
   const [ProfileData, setProfileData] = useState();
-  const [Value, setValue] = useState({ address: "" });
+  const [Value, setValue] = useState({ address: "", email: "" });
 
   const headers = {
     id: localStorage.getItem("id"),
@@ -17,6 +17,7 @@ const Settings = () => {
     setValue({...Value, [name]: value});
   }
 
+  //isme try catch lagana parega error alert message show krvane k liye
   const submitAddress = async () => {
     const res = await axios.put("http://localhost:1000/api/v1/update-address", Value, {headers});
     alert(res.data.message);
@@ -26,7 +27,7 @@ const Settings = () => {
     const fetch = async () => {
       const response = await axios.get("http://localhost:1000/api/v1/get-user-information", { headers });
       setProfileData(response.data);
-      setValue({ address: response.data.address });
+      setValue({ address: response.data.address, email: response.data.email });
     }
     fetch();
   }, []);
@@ -46,9 +47,8 @@ const Settings = () => {
             </div>
             <div className="">
               <label htmlFor="">Email</label>
-              <p className="p-2 rounded bg-zinc-800 mt-2 font-semibold">
-                {ProfileData.email}
-              </p>
+              <textarea name="email" rows={1} value={Value.email} onChange={change}
+            className="p-2 rounded bg-zinc-800 mt-2 font-semibold"></textarea>
             </div>
           </div>
           <div className="mt-4 flex flex-col">

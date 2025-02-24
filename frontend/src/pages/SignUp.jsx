@@ -74,11 +74,13 @@ const SignUp = () => {
       }
       else {
         const response = await axios.post("http://localhost:1000/api/v1/sign-up",Values)
+        console.log(response);
         alert(response.data.message);
         navigate("/Login");
       }
     } catch (error) {
-      alert("Login error:", error.response.data.message); 
+      alert(error.response.data.message); 
+      // console.log(error.response.data)
     }
   }
   return (

@@ -3,6 +3,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./userAuth");
+const v = require('validator');
 
 //Sign Up
 router.post("/sign-up", async (req, res) => {
@@ -20,6 +21,11 @@ router.post("/sign-up", async (req, res) => {
     const existingUsername = await User.findOne({ username: username });
     if (existingUsername) {
       return res.status(400).json({ message: "usernmae already exist" });
+    }
+
+    //check email format is correct ?
+    if (!v.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
     }
 
     //check email already exist ?
@@ -96,9 +102,19 @@ router.get("/get-user-information", authenticateToken, async (req, res) => {
 router.put("/update-address", authenticateToken, async (req, res) => {
   try {
     const { id } = req.headers;
-    const { address } = req.body;
-    await User.findByIdAndUpdate(id, { address: address });
-    return res.status(200).json({message: "Address updated Successfully"});
+    const { address, email } = req.body;
+
+    if (!v.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
+
+    const existingEmail = await User.findOne({ email: email });
+    if (existingEmail) {
+      return res.status(400).json({ message: "Email already exist" });
+    }
+
+    await User.findByIdAndUpdate(id, { address: address, email: email });
+    return res.status(200).json({message: "Address email updated Successfully"});
   } catch (error) {
     res.status(500).json({ message: "Internal server error " });
   }

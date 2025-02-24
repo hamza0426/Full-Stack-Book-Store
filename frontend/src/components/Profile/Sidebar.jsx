@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 
@@ -27,7 +28,7 @@ const Sidebar = ({ data }) => {
         className="text-zinc-100 font-semibold w-full py-2 mt-4 text-center hover:bg-zinc-900 rounded transition-all duration-300"
         >Settings</Link>
       </div>
-      <button className="bg-zinc-900 w-3/6 lg:w-full mt-4 lg:mt-0 text-white font-semibold flex items-center justify-center py-2 rounded hover:bg-white hover:to-zinc-900 transition-all duration-300">
+      <button className="bg-zinc-900 w-3/6 lg:w-full mt-4 lg:mt-0 text-white font-semibold flex items-center justify-center py-2 rounded hover:bg-white hover:text-zinc-900 transition-all duration-300 cursor-pointer">
       Logout <FaArrowRightFromBracket className="ms-4"/>
       </button>
     </div>
