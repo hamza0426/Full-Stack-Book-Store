@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineSegment } from "react-icons/md";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/auth";
 
 const Navbar = () => {
   const links = [
@@ -30,6 +31,8 @@ const Navbar = () => {
       link: "/profile",
     },
   ];
+  const history = useNavigate();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
   if (isLoggedIn === false) {
@@ -96,7 +99,14 @@ const Navbar = () => {
             </>}
             {isLoggedIn === true && <><div className="hidden md:flex gap-4">
             <button
-              // onClick={}
+              onClick={() => {
+                        dispatch(authActions.logout());
+                        dispatch(authActions.changeRole("user"));
+                        localStorage.clear("id");
+                        localStorage.clear("token");
+                        localStorage.clear("role");
+                        history("/");
+                      }}
               className="px-4 py-1 bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
             >
               Logout
