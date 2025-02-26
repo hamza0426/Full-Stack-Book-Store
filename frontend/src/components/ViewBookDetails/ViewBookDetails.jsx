@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../Loader/Loader";
 import { useEffect, useState } from "react";
@@ -8,8 +8,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 const ViewBookDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [Data, setData] = useState();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
@@ -48,7 +50,14 @@ const ViewBookDetails = () => {
     );
     alert(response.data.message);
   }
-  
+  const deleteBook = async () => {
+    const response = await axios.delete(
+      `http://localhost:1000/api/v1/delete-book`,
+      { headers }
+    );
+    alert(response.data.message);
+    navigate("/all-books")
+  }
   
   return (
     <>
@@ -70,7 +79,10 @@ const ViewBookDetails = () => {
                     <MdFavorite />
                     <span className="ms-4 block lg:hidden"> Favorites </span>
                   </button>
-                  <button className=" text-amber-50 rounded-lg  mt-8 md:mt-0 lg:rounded-full text-3xl p-3 lg:mt-8 bg-blue-900 flex items-center justify-center " onClick={handleCart}>
+                  <button
+                    className=" text-amber-50 rounded-lg  mt-8 md:mt-0 lg:rounded-full text-3xl p-3 lg:mt-8 bg-blue-900 flex items-center justify-center "
+                    onClick={handleCart}
+                  >
                     <FaShoppingCart />
                     <span className="ms-4 block lg:hidden"> Add to cart </span>
                   </button>
@@ -78,11 +90,17 @@ const ViewBookDetails = () => {
               )}
               {isLoggedIn === true && role === "admin" && (
                 <div className="flex flex-col md:flex-row lg:flex-col items-center justify-between lg:justify-start mt-4 lg:mt-0 ">
-                  <button className=" bg-amber-50 rounded-lg lg:rounded-full text-3xl p-3 text-red-800 flex items-center justify-center ">
+                  <Link
+                    to={`/updateBook/${id}`}
+                    className=" bg-amber-50 rounded-lg lg:rounded-full text-3xl p-3 text-red-800 flex items-center justify-center "
+                  >
                     <FaEdit />
                     <span className="ms-4 block lg:hidden"> Edit Book </span>
-                  </button>
-                  <button className=" text-red-500 rounded-lg mt-8 md:mt-0 lg:rounded-full text-3xl p-3 mt-0 lg:mt-8 bg-white flex items-center justify-center ">
+                  </Link>
+                  <button
+                    className=" text-red-500 rounded-lg mt-8 md:mt-0 lg:rounded-full text-3xl p-3 mt-0 lg:mt-8 bg-white flex items-center justify-center "
+                    onClick={deleteBook}
+                  >
                     <MdDeleteOutline />
                     <span className="ms-4 block lg:hidden"> Delete Book </span>
                   </button>
@@ -94,12 +112,12 @@ const ViewBookDetails = () => {
             <h1 className="text-4xl text-zinc-300 font-semibold">
               {Data.title}
             </h1>
-            <p className="text-zinc-400 mt-1">By {Data.author}</p>
+            <p className="text-red-50 mt-1">By {Data.author}</p>
             <p className="text-black mt-4 text-xl">{Data.desc}</p>
-            <p className="flex mt-4 items-center justify-start text-zinc-400">
+            <p className="flex mt-4 items-center justify-start text-zinc-50">
               <GrLanguage className="me-3" /> {Data.language}
             </p>
-            <p className="mt-4 text-zinc-100 text-3xl font-semibold">
+            <p className="mt-4 text-zinc-800 text-3xl font-semibold">
               Price: Rs {Data.price}{" "}
             </p>
           </div>

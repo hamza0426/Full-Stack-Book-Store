@@ -69,11 +69,11 @@ router.get("/get-all-orders", authenticateToken, async (req, res) => {
       })
       .sort({ createdAt: -1 });
     return res.json({
-      status: "Success",
+      // status: "Success",
       data: userData,
     });
   } catch (error) {
-    return res.status(500).json({ message: "An Error occurred" });
+    return res.status(503).json({ message: "An Error occurred" });
   }
 });
 
