@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+
 const ViewBookDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -98,7 +99,7 @@ const ViewBookDetails = () => {
                     <span className="ms-4 block lg:hidden"> Edit Book </span>
                   </Link>
                   <button
-                    className=" text-red-500 rounded-lg mt-8 md:mt-0 lg:rounded-full text-3xl p-3 mt-0 lg:mt-8 bg-white flex items-center justify-center "
+                    className=" text-red-500 rounded-lg md:mt-0 lg:rounded-full text-3xl p-3 mt-0 lg:mt-8 bg-white flex items-center justify-center "
                     onClick={deleteBook}
                   >
                     <MdDeleteOutline />

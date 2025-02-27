@@ -17,6 +17,7 @@ import Settings from "./components/Profile/Settings";
 import AllOrders from "./pages/AllOrders";
 import AddBook from "./pages/AddBook";
 import UpdateBook from "./pages/UpdateBook";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/all-books" element={<AllBooks />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />}>
           {role === "user" ? (

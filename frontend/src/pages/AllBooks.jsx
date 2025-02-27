@@ -33,12 +33,3 @@ const AllBooks = () => {
 };
 
 export default AllBooks;
-
-
-// const AllBooks = () => {
-//   return (
-//     <div>AllBooks</div>
-//   )
-// }
-
-// export default AllBooks

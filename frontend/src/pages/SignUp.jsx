@@ -1,64 +1,7 @@
-// // import { useState } from "react";
-// // import Loader from "../Loader/Loader";
 
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// const SignUp = () => {
-//   // const [loading, setLoading] = useState(false);
-  
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-[#FEFAE0]">
-//       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-//         <h2 className="text-2xl font-bold text-center text-[#DDA15E] mb-6">
-//           Create an Account
-//         </h2>
-//         <form className="space-y-4">
-//           <div>
-//             <label className="block text-[#283618] font-medium">Username</label>
-//             <input
-//               type="text"
-//               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E]"
-//               placeholder="Enter your username"
-//             />
-//           </div>
-//           <div>
-//             <label className="block text-[#283618] font-medium">Email</label>
-//             <input
-//               type="email"
-//               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E]"
-//               placeholder="Enter your email"
-//             />
-//           </div>
-//           <div>
-//             <label className="block text-[#283618] font-medium">Password</label>
-//             <input
-//               type="password"
-//               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E]"
-//               placeholder="Enter your password"
-//             />
-//           </div>
-//           <div>
-//             <label className="block text-[#283618] font-medium">Home Address</label>
-//             <input
-//               type="text"
-//               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E]"
-//               placeholder="Enter your home address"
-//             />
-//           </div>
-//           <button
-//             type="submit"
-//             className="w-full bg-[#DDA15E] text-white py-2 rounded-lg hover:bg-[#BC6C25] transition-all duration-300"
-//           >
-//             SignUp
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SignUp;
 
 const SignUp = () => {
   const [Values, setValues] = useState({username:"", email:"", password:"", address:""});
