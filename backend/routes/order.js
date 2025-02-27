@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { authenticateToken } = require("./userAuth");
-// const Book = require('../models/book');
+const Book = require('../models/book');
 const Order = require("../models/order");
 const User = require("../models/user");
 
@@ -68,14 +68,18 @@ router.get("/get-all-orders", authenticateToken, async (req, res) => {
         path: "user",
       })
       .sort({ createdAt: -1 });
+    console.log("Orders fetched:", userData);
     return res.json({
-      // status: "Success",
+      status: "Success",
       data: userData,
     });
   } catch (error) {
-    return res.status(503).json({ message: "An Error occurred" });
+    console.log(error)
+    return res.status(570).json({ message: "An Error occurred" });
   }
 });
+
+
 
 //update order status --admin
 router.put("/update-order-status/:id", authenticateToken, async (req, res) => {

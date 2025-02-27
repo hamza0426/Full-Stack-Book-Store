@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const order = new mongoose.Schema({
   user: {
     type: mongoose.Types.ObjectId,
-    // ref: "user", //that single s cause the major issue that fucked up
-    ref: "users",
+    // ref: "users", //that single s cause the major issue
+    // but "user" is also working and only with this admin get-all-orders is working
+    ref: "user",
   },
   book: {
     type: mongoose.Types.ObjectId,
