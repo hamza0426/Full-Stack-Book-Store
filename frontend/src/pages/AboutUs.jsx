@@ -190,13 +190,13 @@ const AboutUs = () => {
                     className="flex items-center gap-2"
                     style={{ color: "#606C38" }}
                   >
-                    <span>📧</span> hamza@bookiverse.com
+                    <span>📧</span> muhammadhamzaowais5@gmail.com
                   </p>
                   <p
                     className="flex items-center gap-2"
                     style={{ color: "#606C38" }}
                   >
-                    <span>📱</span> +92 300 1234567
+                    <span>📱</span> +92 334 0246628
                   </p>
                 </div>
               </div>
@@ -237,7 +237,7 @@ const AboutUs = () => {
                     className="flex items-center gap-2"
                     style={{ color: "#606C38" }}
                   >
-                    <span>📱</span> +92 344320538
+                    <span>📱</span> +92 3443205368
                   </p>
                 </div>
               </div>

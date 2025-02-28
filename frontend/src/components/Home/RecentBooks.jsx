@@ -35,4 +35,4 @@ const RecentBooks = () => {
   );
 };
 
-export default RecentBooks;
+export default RecentBooks

@@ -8,18 +8,16 @@ import MobileNav from "../components/Profile/MobileNav"
 
 
 const Profile = () => {
-  // const isLoggedIn = useSelector();
   const [Profile, setProfile] = useState();
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
-  // console.log(headers);
+
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get("http://localhost:1000/api/v1/get-user-information", { headers });
       setProfile(response.data)
-      // console.log(response);
     }
     fetch();
   }, []);
