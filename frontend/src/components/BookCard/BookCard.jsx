@@ -23,8 +23,8 @@ const BookCard = ({ data , favourite}) => {
     <div className="bg-neutral-300 rounded p-2 flex flex-col">
       <Link to={`/view-book-details/${data._id}`}>
         <div className=" ">
-          <div className=" bg-zinc-600 rounded flex items-center justify-center">
-            <img src={data.url} alt="/" className="h-[25vh]" />
+          <div className=" bg-zinc-700 rounded flex items-center justify-center">
+            <img src={data.url} alt="/" className="h-[38vh]" />
           </div>
           <h2 className="mt-4 text-xl text-gray-900 font-semibold">
             {data.title}
@@ -35,7 +35,6 @@ const BookCard = ({ data , favourite}) => {
           </p>
         </div>
       </Link>
-      {/* perfect without border */}
       {favourite && (
         <button
           className=" bg-button px-4 py-2 rounded text-amber-50 mt-4 "

@@ -7,7 +7,7 @@ const Hero = () => {
         <h1 className=" text-4xl lg:text-6xl font-semibold text-primary text-center lg:text-left ">
           Read Your Next Book Now!
         </h1>
-        <p className="mt-4 text-xl text-zinc-300 text-center lg:text-left ">
+        <p className="mt-4 text-xl text-zinc-900 font-semibold text-center lg:text-left ">
           Discover a world of stories at your fingertips. Explore, read, and
           indulge in books that inspire you!
         </p>
