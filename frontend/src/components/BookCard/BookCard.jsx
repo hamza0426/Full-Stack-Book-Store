@@ -26,11 +26,11 @@ const BookCard = ({ data , favourite}) => {
           <div className=" bg-zinc-700 rounded flex items-center justify-center">
             <img src={data.url} alt="/" className="h-[38vh]" />
           </div>
-          <h2 className="mt-4 text-xl text-gray-900 font-semibold">
+          <h2 className="mt-4 text-xl text-primaryMedium font-bold">
             {data.title}
           </h2>
-          <p className="mt-4 text-gray-900 font-semibold ">by {data.author}</p>
-          <p className="mt-4 text-xl text-gray-900 font-semibold  ">
+          <p className="mt-4 text-primaryMedium font-semibold ">by {data.author}</p>
+          <p className="mt-4 text-xl text-primaryMedium font-semibold  ">
             Rs. {data.price}
           </p>
         </div>

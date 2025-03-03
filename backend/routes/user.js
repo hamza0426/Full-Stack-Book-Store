@@ -3,7 +3,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./userAuth");
-const v = require('validator');
+const valid = require('validator');
 
 //Sign Up
 router.post("/sign-up", async (req, res) => {
@@ -24,7 +24,7 @@ router.post("/sign-up", async (req, res) => {
     }
 
     //check email format is correct ?
-    if (!v.isEmail(email)) {
+    if (!valid.isEmail(email)) {
       return res.status(400).json({ message: "Invalid email format" });
     }
 
@@ -99,40 +99,25 @@ router.get("/get-user-information", authenticateToken, async (req, res) => {
 });
 
 //update address
-router.put("/update-address", authenticateToken, async (req, res) => {
+router.put("/update-profile", authenticateToken, async (req, res) => {
   try {
     const { id } = req.headers;
     const { address, email } = req.body;
 
-    if (!v.isEmail(email)) {
+    if (!valid.isEmail(email)) {
       return res.status(400).json({ message: "Invalid email format" });
     }
 
-    const existingEmail = await User.findOne({ email: email });
-    if (existingEmail) {
-      return res.status(400).json({ message: "Email already exist" });
-    }
+    // const existingEmail = await User.findOne({ email: email });
+    // if (existingEmail) {
+    //   return res.status(400).json({ message: "Email already exist" });
+    // }
 
     await User.findByIdAndUpdate(id, { address: address, email: email });
-    return res.status(200).json({message: "Address email updated Successfully"});
+    return res.status(200).json({message: "Profile updated Successfully"});
   } catch (error) {
     res.status(500).json({ message: "Internal server error " });
   }
 });
 
 module.exports = router;
-
-// {
-//     "username" :"testy1",
-//     "email" :"testy1@gmail.com",
-//     "password" :"test24",
-//     "address" :"tests"
-// }
-
-//admin
-// {
-//     "username" :"admin",
-//     "email" :"admin@gmail.com",
-//     "password" :"admin123",
-//     "address" :"admin"
-// }

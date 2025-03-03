@@ -17,10 +17,39 @@ const Settings = () => {
     setValue({...Value, [name]: value});
   }
 
-  //isme try catch lagana parega error alert message show krvane k liye
   const submitAddress = async () => {
-    const res = await axios.put("http://localhost:1000/api/v1/update-address", Value, {headers});
-    alert(res.data.message);
+    try {
+      if (!Value.email.trim() || !Value.address.trim()) {
+        alert("Please fill in both email and address fields");
+        return;
+      }
+      const originalEmail = ProfileData.email;
+      const originalAddress = ProfileData.address;
+      if(Value.email === originalEmail && Value.address === originalAddress) {
+        alert("No Changes Detected, both email and address are same!!");
+        return;
+      }
+      // let warningMessage = "";
+      // if (Value.email === originalEmail) {
+      //   warningMessage += "Email remains unchanged. ";
+      //   alert(warningMessage);
+      // }
+      // if (Value.address === originalAddress) {
+      //   warningMessage += "Address remains unchanged. ";
+      //   alert(warningMessage);
+      // }
+      // if (warningMessage) {
+      //   alert(warningMessage);
+      //   return; 
+      // }
+      else {
+        const res = await axios.put("http://localhost:1000/api/v1/update-profile", Value, {headers});
+        alert(res.data.message);
+      }
+    } catch (e) {
+      alert("An error occured while updating, please try again")
+      console.log(e);
+    }
   } 
 
   useEffect(() => {
@@ -45,10 +74,10 @@ const Settings = () => {
                 {ProfileData.username}
               </p>
             </div>
-            <div className="">
+            <div className="flex flex-row items-center justify-center gap-6">
               <label htmlFor="">Email</label>
               <textarea name="email" rows={1} value={Value.email} onChange={change}
-            className="p-2 rounded bg-zinc-800 mt-2 font-semibold"></textarea>
+            className="p-2 w-auto rounded bg-zinc-800 font-semibold"></textarea>
             </div>
           </div>
           <div className="mt-4 flex flex-col">

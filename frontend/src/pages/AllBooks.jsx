@@ -66,11 +66,11 @@ const AllBooks = () => {
 
   return (
     <div className="bg-bg1 h-auto px-12 py-8">
-    <h4 className="text-3xl text-primary mb-2">All Books</h4>
+    <h4 className="text-3xl font-semibold text-accentDark mb-2">All Books</h4>
       <div className="flex justify-between items-center">
         {/* Language Filter Dropdown */}
         <select
-          className="border border-primary px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black text-zinc-950 text-semibold"
+          className="mt-2 border border-primaryDark px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black text-zinc-950 text-semibold"
           value={selectedLanguage}
           onChange={(e) => setSelectedLanguage(e.target.value)}
         >

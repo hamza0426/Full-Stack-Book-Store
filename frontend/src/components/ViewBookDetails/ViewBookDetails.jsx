@@ -110,15 +110,15 @@ const ViewBookDetails = () => {
             </div>
           </div>
           <div className="p-4 w-full lg:w-3/6">
-            <h1 className="text-4xl text-zinc-300 font-semibold">
+            <h1 className="text-4xl text-accentDark font-semibold">
               {Data.title}
             </h1>
-            <p className="text-red-50 mt-1">By {Data.author}</p>
-            <p className="text-black mt-4 text-xl">{Data.desc}</p>
-            <p className="flex mt-4 items-center justify-start text-zinc-50">
-              <GrLanguage className="me-3" /> {Data.language}
+            <p className="text-accentLight font-semibold mt-1">By {Data.author}</p>
+            <p className="text-primaryDark mt-4 text">{Data.desc}</p>
+            <p className="flex mt-4 items-center justify-start text-primaryDark">
+              <GrLanguage className=" me-3" /> {Data.language}
             </p>
-            <p className="mt-4 text-zinc-800 text-3xl font-semibold">
+            <p className="mt-4 text-accentLight text-3xl font-semibold">
               Price: Rs {Data.price}{" "}
             </p>
           </div>
