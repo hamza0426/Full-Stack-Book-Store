@@ -108,11 +108,6 @@ router.put("/update-profile", authenticateToken, async (req, res) => {
       return res.status(400).json({ message: "Invalid email format" });
     }
 
-    // const existingEmail = await User.findOne({ email: email });
-    // if (existingEmail) {
-    //   return res.status(400).json({ message: "Email already exist" });
-    // }
-
     await User.findByIdAndUpdate(id, { address: address, email: email });
     return res.status(200).json({message: "Profile updated Successfully"});
   } catch (error) {

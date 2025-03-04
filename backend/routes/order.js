@@ -57,9 +57,6 @@ router.get("/get-order-history", authenticateToken, async (req, res) => {
 //get-all-orders --admin
 router.get("/get-all-orders", authenticateToken, async (req, res) => {
   try {
-    // if (req.user.role!== 'admin') {
-    //     return res.status(403).json({ message: "Forbidden" });
-    // }
     const userData = await Order.find()
       .populate({
         path: "book",
@@ -79,14 +76,9 @@ router.get("/get-all-orders", authenticateToken, async (req, res) => {
   }
 });
 
-
-
 //update order status --admin
 router.put("/update-order-status/:id", authenticateToken, async (req, res) => {
   try {
-    // if (req.user.role !== "admin") {
-    //   return res.status(403).json({ message: "Forbidden" });
-    // }
     const { id } = req.params;
     await Order.findByIdAndUpdate(id, { status: req.body.status });
     return res.json({

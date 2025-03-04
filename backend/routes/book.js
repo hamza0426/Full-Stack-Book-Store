@@ -117,16 +117,3 @@ router.get("/get-book-by-id/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-// book
-// {
-//     "url":"Pic2",
-//     "title":"Peer-e-kamil",
-//     "author":"Umera ahmed",
-//     "price":"800",
-//     "desc":"The book is all about the fucking love story of umaima and the fucking salaar sikandar who's in the hearts of many pretty girls",
-//     "language":"Urdu"
-//   }

@@ -1,6 +1,4 @@
-
 import { useState } from "react";
-// import Loader from "../components/Loader/Loader";
 import axios from "axios";
 import {authActions} from '../store/auth';
 import { useDispatch } from "react-redux";
@@ -14,40 +12,8 @@ const Login = () => {
     const {name, value} = e.target;
     setValues({...Values, [name]: value});
   };
-  // const submit = async () => {
-  //   try {
-  //     if(Values.username === "" || Values.password === "") {
-  //       alert("All fields are required")
-  //     }
-  //     else {
-  //       const response = await axios.post("http://localhost:1000/api/v1/sign-in",Values)
-  //       console.log(response.data);
-  //       //navigate("/Login");
-  //     }
-  //   } catch (error) {
-  //     alert(error.response.data.message);
-  //   }
-  // }
-
-//   When you click the Login button, it submits the form.
-// By default, form submission causes the browser to refresh the page.
-
-// 👉 e.preventDefault() stops this default behavior, preventing the page from reloading.
-
-// Why Does This Fix Your Errors?
-// Without e.preventDefault():
-
-// The page refreshes before the submit function completes.
-// This cancels the API request or disrupts it.
-// Errors don't show because the page reloads before they can be displayed.
-// With e.preventDefault():
-// ✔ The API request completes properly.
-// ✔ Errors display in alerts instead of disappearing.
-// ✔ The page stays the same, making it feel smoother.
-
-
   const submit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault(); 
     try {
       if (Values.username === "" || Values.password === "") {
         alert("All fields are required");
@@ -55,29 +21,17 @@ const Login = () => {
         const response = await axios.post(
           "http://localhost:1000/api/v1/sign-in",
           Values,
-          // { headers: { "Content-Type": "application/json" } } // Ensure correct headers
+          // { headers: { "Content-Type": "application/json" } }
         );
         dispatch(authActions.login());
         dispatch(authActions.changeRole(response.data.role));
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
-        navigate("/profile"); // Redirect if needed
+        navigate("/profile"); 
       }
     } catch (error) {
-      // e.preventDefault();
       alert(error.response?.data?.message || "Login error");
-
-      // Debugging: Log the error in console
-  
-      // if (error.response) {
-      //   alert(error.response.data.message || "Invalid credentials"); // Show correct error
-      // } else if (error.request) {
-      //   alert("No response from server. Check your connection.");
-      // } else {
-      //   alert("Something went wrong. Please try again.");
-      // }
-    }
   };
   
 

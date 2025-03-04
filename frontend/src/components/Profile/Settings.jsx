@@ -29,19 +29,6 @@ const Settings = () => {
         alert("No Changes Detected, both email and address are same!!");
         return;
       }
-      // let warningMessage = "";
-      // if (Value.email === originalEmail) {
-      //   warningMessage += "Email remains unchanged. ";
-      //   alert(warningMessage);
-      // }
-      // if (Value.address === originalAddress) {
-      //   warningMessage += "Address remains unchanged. ";
-      //   alert(warningMessage);
-      // }
-      // if (warningMessage) {
-      //   alert(warningMessage);
-      //   return; 
-      // }
       else {
         const res = await axios.put("http://localhost:1000/api/v1/update-profile", Value, {headers});
         alert(res.data.message);

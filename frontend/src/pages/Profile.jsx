@@ -1,11 +1,9 @@
 import { Outlet } from "react-router-dom"
 import Sidebar from "../components/Profile/Sidebar"
 import { useEffect, useState } from "react"
-// import { useSelector } from "react-redux"
 import axios from "axios"
 import Loader from "../components/Loader/Loader"
 import MobileNav from "../components/Profile/MobileNav"
-
 
 const Profile = () => {
   const [Profile, setProfile] = useState();

@@ -23,11 +23,3 @@ app.use("/api/v1", Order)
 app.listen(process.env.PORT, () => {
     console.log(`Server Started at ${process.env.PORT}`);
 });
-
-
-
-// app.get("/", (req, res) => {
-//     res.send("Hello from Backend...");
-// });
-// useless mf maybe will be in use in future when debugging
-// hehehe 
