@@ -54,11 +54,7 @@ const Navbar = () => {
     <>
       <nav className="z-50 relative flex bg-zinc-800 text-white px-8 py-2 items-center justify-between">
         <Link to={"/"} className=" flex items-center">
-          <img
-            className="h-11 me-4"
-            src="./LogoBlackbg.png"
-            alt="logo"
-          />
+          <img className="h-11 me-4" src="./LogoBlackbg.png" alt="logo" />
           <h1 className="text-2xl font-semibold">FahamBooks</h1>
         </Link>
         <div className="nav-links-fahambooks block md:flex items-center gap-4 transition-all duration-300 cursor-pointer">
@@ -168,7 +164,14 @@ const Navbar = () => {
           <>
             <div className="block md:hidden gap-8">
               <button
-                // onClick={}
+                onClick={() => {
+                  dispatch(authActions.logout());
+                  dispatch(authActions.changeRole("user"));
+                  localStorage.clear("id");
+                  localStorage.clear("token");
+                  localStorage.clear("role");
+                  history("/");
+                }}
                 className={`${Mblnav} px-8 py-4 text-3xl font-semibold bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300`}
               >
                 Logout
