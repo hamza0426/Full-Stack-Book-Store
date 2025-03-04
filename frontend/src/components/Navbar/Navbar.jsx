@@ -146,14 +146,14 @@ const Navbar = () => {
           <>
             <Link
               to={"/login"}
-              className={`${Mblnav} px-8 mb-8 text-3xl font-semibold border-[var(--color-button)] border rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300`}
+              className={`${Mblnav} px-8 py-3 mb-8 text-3xl font-semibold border-[var(--color-button)] border rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300`}
               onClick={toggleMblnav}
             >
               Login
             </Link>
             <Link
               to={"/sign-up"}
-              className={`${Mblnav} px-8 mb-8 text-3xl font-semibold bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300`}
+              className={`${Mblnav} px-8 py-3 mb-8 text-3xl font-semibold bg-button rounded hover:bg-white hover:text-zinc-800 transition-all duration-300`}
               onClick={toggleMblnav}
             >
               Sign Up

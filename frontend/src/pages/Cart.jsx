@@ -206,9 +206,9 @@ const Cart = () => {
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 hidden lg:block">
                   {items.desc.slice(0, 100)}...
                 </p>
-                <p className="text-sm sm:text-base text-zinc-300 mt-2 lg:hidden md:block">
+                {/* <p className="text-sm sm:text-base text-zinc-300 mt-2 lg:hidden md:block">
                   {items.desc.slice(0, 65)}...
-                </p>
+                </p> */}
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 md:hidden block">
                   {items.desc.slice(0, 80)}...
                 </p>

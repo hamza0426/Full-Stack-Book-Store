@@ -66,7 +66,9 @@ const Login = () => {
       }
     } catch (error) {
       // e.preventDefault();
-      alert("Login error:", error.response.data.message); // Debugging: Log the error in console
+      alert(error.response?.data?.message || "Login error");
+
+      // Debugging: Log the error in console
   
       // if (error.response) {
       //   alert(error.response.data.message || "Invalid credentials"); // Show correct error
