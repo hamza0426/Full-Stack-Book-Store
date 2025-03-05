@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import {authActions} from '../store/auth';
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [Values, setValues] = useState({username:"", password:""});
@@ -77,7 +77,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-center text-gray-600 mt-4">
-          Dont have an account? <a href="/sign-up" className="text-[#DDA15E] hover:text-[#BC6C25]">Sign Up</a>
+          Dont have an account? <Link to="/sign-up" className="text-[#DDA15E] hover:text-[#BC6C25]">Sign Up</Link>
         </p>
       </div>
     </div>

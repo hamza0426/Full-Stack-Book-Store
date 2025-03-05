@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [Values, setValues] = useState({username:"", email:"", password:"", address:""});
@@ -148,13 +148,13 @@ const SignUp = () => {
 
         <p className="mt-6 text-center text-sm" style={{ color: "#283618" }}>
           Already have an account?{" "}
-          <a
-            href="/login"
+          <Link
+            to="/login"
             className="font-medium hover:underline"
             style={{ color: "#BC6C25" }}
           >
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>
