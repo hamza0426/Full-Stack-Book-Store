@@ -22,7 +22,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:1000/api/v1/get-all-orders",
+        "https://book-store-backend-psi-eight.vercel.app/api/v1/get-all-orders",
         { headers }
       );
       setAllOrders(response.data.data);
@@ -37,7 +37,7 @@ const AllOrders = () => {
 
   const submitChanges = async (i) => {
     const id = AllOrders[i]._id;
-    const response = await axios.put(`http://localhost:1000/api/v1/update-order-status/${id}`, Values,
+    const response = await axios.put(`https://book-store-backend-psi-eight.vercel.app/api/v1/update-order-status/${id}`, Values,
         { headers });
          alert(response.data.message);
   }

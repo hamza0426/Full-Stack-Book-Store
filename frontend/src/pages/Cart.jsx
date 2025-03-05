@@ -16,7 +16,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       const res = await axios.get(
-        "http://localhost:1000/api/v1/get-user-cart",
+        "https://book-store-backend-psi-eight.vercel.app/api/v1/get-user-cart",
         { headers }
       );
       setCart(res.data.data);
@@ -33,7 +33,7 @@ const Cart = () => {
 
   const deleteItem = async (bookid) => {
     const response = await axios.put(
-      `http://localhost:1000/api/v1/remove-from-cart/${bookid}`,
+      `https://book-store-backend-psi-eight.vercel.app/api/v1/remove-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -44,7 +44,7 @@ const Cart = () => {
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:1000/api/v1/place-order",
+        "https://book-store-backend-psi-eight.vercel.app/api/v1/place-order",
         { order: Cart },
         { headers }
       );
@@ -56,7 +56,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="bg-zinc-900 px-4 sm:px-8 md:px-12 h-screen py-8">
+    <div className="bg-zinc-900 px-4 sm:px-8 md:px-12 min-h-screen py-8">
       {!Cart && (
         <div className="w-full h-full flex items-center justify-center">
           <Loader />
@@ -86,7 +86,7 @@ const Cart = () => {
             >
               <img
                 src={items.url}
-                alt="/"
+                alt={items.title}
                 className="h-32 sm:h-40 md:h-24 lg:h-28 object-cover"
               />
               <div className="w-full md:w-auto text-center md:text-left">
@@ -96,9 +96,6 @@ const Cart = () => {
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 hidden lg:block">
                   {items.desc.slice(0, 100)}...
                 </p>
-                {/* <p className="text-sm sm:text-base text-zinc-300 mt-2 lg:hidden md:block">
-                  {items.desc.slice(0, 65)}...
-                </p> */}
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 md:hidden block">
                   {items.desc.slice(0, 80)}...
                 </p>

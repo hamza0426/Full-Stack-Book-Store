@@ -30,7 +30,7 @@ const Settings = () => {
         return;
       }
       else {
-        const res = await axios.put("http://localhost:1000/api/v1/update-profile", Value, {headers});
+        const res = await axios.put("https://book-store-backend-psi-eight.vercel.app/api/v1/update-profile", Value, {headers});
         alert(res.data.message);
       }
     } catch (e) {
@@ -41,7 +41,7 @@ const Settings = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("http://localhost:1000/api/v1/get-user-information", { headers });
+      const response = await axios.get("https://book-store-backend-psi-eight.vercel.app/api/v1/get-user-information", { headers });
       setProfileData(response.data);
       setValue({ address: response.data.address, email: response.data.email });
     }

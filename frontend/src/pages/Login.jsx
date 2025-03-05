@@ -19,7 +19,7 @@ const Login = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/sign-in",
+          "https://book-store-backend-psi-eight.vercel.app/api/v1/sign-in",
           Values,
           // { headers: { "Content-Type": "application/json" } }
         );
@@ -32,8 +32,8 @@ const Login = () => {
       }
     } catch (error) {
       alert(error.response?.data?.message || "Login error");
-  };
-  
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FEFAE0]">

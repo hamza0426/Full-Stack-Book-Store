@@ -16,7 +16,7 @@ const SignUp = () => {
         alert("All fields are required")
       }
       else {
-        const response = await axios.post("http://localhost:1000/api/v1/sign-up",Values)
+        const response = await axios.post("https://book-store-backend-psi-eight.vercel.app/api/v1/sign-up",Values)
         console.log(response);
         alert(response.data.message);
         navigate("/Login");
