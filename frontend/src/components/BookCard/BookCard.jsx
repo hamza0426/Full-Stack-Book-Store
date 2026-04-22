@@ -26,7 +26,7 @@ const BookCard = ({ data, favourite }) => {
             <img
               src={data.url}
               alt="Book Cover"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
           <h2 className="mt-4 text-2xl font-bold text-[#403D39] break-words">
