@@ -17,12 +17,12 @@ const BookCard = ({ data, favourite }) => {
     );
     alert(response.data.message);
   };
-
+// bg-[#EFE7DA]
   return (
-    <div className="h-full bg-[#EFE7DA] backdrop-blur-lg rounded-lg p-6 flex flex-col shadow-xl border border-[#D8C3A5] text-[#4A3F35]">
+    <div className="h-full bg-red backdrop-blur-lg rounded-lg p-6 flex flex-col shadow-xl border border-[#D8C3A5] text-[#4A3F35]">
       <Link to={`/view-book-details/${data._id}`} className="flex flex-col flex-grow">
         <div>
-          <div className="bg-zinc-700 rounded flex items-center justify-center overflow-hidden shadow-md">
+          <div className="h-64 bg-zinc-700 rounded flex items-center justify-center overflow-hidden shadow-md">
             <img
               src={data.url}
               alt="Book Cover"
