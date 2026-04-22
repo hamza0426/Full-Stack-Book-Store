@@ -19,8 +19,8 @@ const BookCard = ({ data, favourite }) => {
   };
 
   return (
-    <div className="bg-[#EFE7DA] backdrop-blur-lg rounded-lg p-6 flex flex-col shadow-xl border border-[#D8C3A5] text-[#4A3F35]">
-      <Link to={`/view-book-details/${data._id}`}>
+    <div className="h-full bg-[#EFE7DA] backdrop-blur-lg rounded-lg p-6 flex flex-col shadow-xl border border-[#D8C3A5] text-[#4A3F35]">
+      <Link to={`/view-book-details/${data._id}`} className="flex flex-col flex-grow">
         <div>
           <div className="bg-zinc-700 rounded flex items-center justify-center overflow-hidden shadow-md">
             <img
