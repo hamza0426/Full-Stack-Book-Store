@@ -50,9 +50,7 @@ const AllBooks = () => {
       ) : (
         <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {filteredBooks.map((items) => (
-            
               <BookCard key={items._id} data={items} />
-            
           ))}
         </div>
       )}
